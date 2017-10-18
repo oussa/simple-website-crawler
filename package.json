@@ -1,0 +1,35 @@
+{
+  "name": "website-crawler",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.16.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "node-fetch": "^1.7.3",
+    "node-sass-chokidar": "^0.0.3",
+    "nodemon": "^1.12.1",
+    "npm-run-all": "^4.1.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-api-server": "nodemon api/server.js",
+    "test-api-server": "jest --watch api",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p start-api-server watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "jest": "^21.2.1",
+    "superagent": "^3.6.3",
+    "supertest": "^3.0.0"
+  }
+}
