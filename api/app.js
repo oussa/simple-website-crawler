@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express()
+const cors = require('cors');
 const { fetchWebsite } = require('./fetchUtils')
 const { analyseWebsite } = require('./dataUtils')
+
+app.use(cors());
 
 app.get('/health', (req, res) => {
   res.status(200).send('Ok!')
