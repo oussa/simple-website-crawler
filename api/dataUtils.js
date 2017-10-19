@@ -41,12 +41,16 @@ const utils = {
     result.containsLoginForm = !!Array.from($('body').find('form')).map(form => $(form).html()).join('').match(/login/i)
     // Links (absolute/relative) and count of inaccessible
     const links = Array.from($(html).find('a')).map(a => $(a).attr('href'))
-    const promises = links.map(link => checkWebsite(link))
+    const linksToCheck = links.filter(link => isAbsolute(link))
+    const promises = linksToCheck.map(link => checkWebsite(link))
     result.links.absolute = links.filter(link => isAbsolute(link)).length
     result.links.relative = links.length - links.filter(link => isAbsolute(link)).length
-    return Promise.all(promises).then((values) => {
+    return await Promise.all(promises).then((values) => {
       result.links.inaccessible = values.filter(value => !value).length
       return result
+    }).catch((e) => {
+      console.log('internal error', e)
+      return { error: e }
     })
   }
 }

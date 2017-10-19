@@ -1,8 +1,9 @@
 const request = require('supertest')
 const app = require('./app')
 const { fetchWebsite } = require('./fetchUtils')
-const { validUrl, invalidUrl, validUrls, validUrlAnalysis } = require('./fakeData')
-// jest.mock('./fetchUtils')
+const { analyseWebsite } = require('./dataUtils')
+const { validUrl, invalidUrl, validUrls, validUrlAnalysis, validUrlHTML} = require('./fakeData')
+jest.mock('./fetchUtils')
 
 describe('Basic checks', () => {
   xtest('API is up and running', () => {
@@ -29,12 +30,18 @@ describe('API works as expected', () => {
 })
 
 describe('api utils functions work', () => {
-  test('fetchWebsite return html with valid url', async () => {
+  test('fetchWebsite returns html with valid url', async () => {
     await expect(fetchWebsite(validUrl)).resolves.toEqual(validUrls[validUrl]);
   })
   xtest('fetchWebsite returns error with invalid url', async () => {
     await expect(fetchWebsite(invalidUrl)).rejects.toEqual({
       error: `website at url ${invalidUrl} could not be found`,
     });
+  })
+})
+
+describe('analyse website works well', () => {
+  test('parses correctly', async () => {
+    await expect(analyseWebsite(validUrlHTML)).resolves.toEqual(validUrlAnalysis);
   })
 })

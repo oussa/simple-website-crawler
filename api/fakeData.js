@@ -14,14 +14,11 @@ const validUrlAnalysis = {
   links: {
     absolute: 2,
     relative: 2,
-    inaccessible: 3
+    inaccessible: 1 // only absolute urls
   },
   containsLoginForm: false
 }
-const validUrls = {
-  'http://oussamakrifa.com': `<div><h2>hey</h2></div>`,
-  'https://github.com': `<div>welcome to mocked github</div>`,
-  'my-super-valid-url.com': `
+const validUrlHTML = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +27,7 @@ const validUrls = {
 </head>
 <body>
   <header>
-    Welcome to the best website, learn <a href="about-us.html">more</a> <!-- first inaccessible link -->
+    Welcome to the best website, learn <a href="about-us.html">more</a>
   </header>
   <section>
     <h1>Wanna know why?</h1>
@@ -38,7 +35,7 @@ const validUrls = {
     <h2>It's cool</h2>
     <p>Not much to say..</p>
     <h2>It's lightweight</h2>
-    <p>think you guessed this one correctly, if you didn't here you <a href="noWhere">go</a></p>
+    <p>think you guessed this one correctly, if you didn't here you <a href="more.html">go</a></p>
   </section>
   <form action="#">
     Username <input type="text" name="username">
@@ -50,11 +47,16 @@ const validUrls = {
   </footer>
 </body>
 </html>`
+const validUrls = {
+  'http://oussamakrifa.com': `<html><head><title>Oussama</title></head><body></body><div><h2>hey</h2></div></body></html>`,
+  'https://github.com': `<div>welcome to mocked github</div>`,
+  'my-super-valid-url.com': validUrlHTML
 };
 
 module.exports = {
   invalidUrl,
   validUrl,
   validUrls,
-  validUrlAnalysis
+  validUrlAnalysis,
+  validUrlHTML
 }
