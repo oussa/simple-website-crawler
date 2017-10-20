@@ -22,7 +22,7 @@ In the project directory, you can run:
 
 Runs the webapp and the server in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.<br>
-Open [http://localhost:8080](http://localhost:8080) to open the API and trying sending some requests manually.
+Open [http://localhost:8080](http://localhost:8080) to open the API and try sending some requests manually.
 
 ### `npm test`
 

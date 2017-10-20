@@ -90,7 +90,7 @@ class App extends Component {
     } catch (error) {
       if (error.response) {
         console.log(error.response.data)
-        this.setState(error.response.data)
+        this.setState({error: `${error.response.status} : ${error.response.data.error}`})
       } else if (error.request) {
         console.log(error.request())
       } else {
