@@ -1,9 +1,8 @@
 {
-  "name": "website-crawler",
+  "name": "simple-website-crawler",
   "version": "1.0.0",
   "description": "Website Checker and Crawler",
   "author": "Oussama Krifa <krifa.oussama@gmail.com> (http://oussamakrifa.com)",
-  "private": true,
   "dependencies": {
     "axios": "^0.16.2",
     "cheerio": "^1.0.0-rc.2",

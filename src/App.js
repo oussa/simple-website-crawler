@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      website: 'oussamakrifa.com',
+      website: '',
       isAnalysed: false,
       analysis: {
         htmlVersion: '',

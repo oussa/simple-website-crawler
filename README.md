@@ -1,9 +1,8 @@
 ## Project summary
-This project is made as part of a coding challenge.
-It consists of a full stack app: an API that given an URL tries to access and crawl it,
+This project consists of a full stack app: an API that given an URL tries to access and crawl it,
 and a UI allowing the input of URL and the display of analysis results (title, html version, number of links, etc..)
 
-This project was initially bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+It was initially bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 This project makes use of [express.js](http://expressjs.com/), [axios](https://github.com/axios/axios),
 [Cheerio](https://cheerio.js.org/), [Jest](https://facebook.github.io/jest/) and many others..
