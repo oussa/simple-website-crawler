@@ -1,6 +1,6 @@
 {
   "name": "simple-website-crawler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Website Checker and Crawler",
   "author": "Oussama Krifa <krifa.oussama@gmail.com> (http://oussamakrifa.com)",
   "dependencies": {
