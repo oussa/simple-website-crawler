@@ -22,8 +22,12 @@ const utils = {
 
   checkWebsite: async (url) => {
     url = makeAbsoluteUrl(url)
-    const response = await fetch(url)
-    return response.ok
+    try {
+      const response = await fetch(url)
+      return response.ok
+    } catch (e) {
+      console.warn(url, e)
+    }
   }
 }
 

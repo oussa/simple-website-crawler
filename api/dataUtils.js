@@ -45,13 +45,14 @@ const utils = {
     const promises = linksToCheck.map(link => checkWebsite(link))
     result.links.absolute = links.filter(link => isAbsolute(link)).length
     result.links.relative = links.length - links.filter(link => isAbsolute(link)).length
-    return await Promise.all(promises).then((values) => {
-      result.links.inaccessible = values.filter(value => !value).length
+    try {
+      const res = await Promise.all(promises)
+      result.links.inaccessible = res.filter(value => !value).length
       return result
-    }).catch((e) => {
+    } catch(e) {
       console.log('internal error', e)
       return { error: e }
-    })
+    }
   }
 }
 
